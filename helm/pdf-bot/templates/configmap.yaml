@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "pdf-bot.fullname" . }}-config
+  labels:
+    {{- include "pdf-bot.labels" . | nindent 4 }}
+data:
+  LOG_LEVEL: {{ .Values.app.logLevel | quote }}

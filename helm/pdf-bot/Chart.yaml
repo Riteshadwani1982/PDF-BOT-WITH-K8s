@@ -1,0 +1,6 @@
+apiVersion: v2
+name: pdf-bot
+description: Streamlit PDF chatbot using Gemini on Amazon EKS
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

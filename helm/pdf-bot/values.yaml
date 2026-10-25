@@ -1,0 +1,33 @@
+replicaCount: 1
+image:
+  repository: 692859921402.dkr.ecr.ap-southeast-1.amazonaws.com/pdf-bot-repo
+  tag: latest
+  pullPolicy: Always
+service:
+  port: 80
+  targetPort: 8501
+app:
+  logLevel: info
+secret:
+  create: false
+  googleApiKey: ""
+ingress:
+  enabled: true
+  className: alb
+  scheme: internet-facing
+  targetType: ip
+  path: /demo
+  healthcheckPath: /demo/_stcore/health
+  listenPort: 80
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 1
+  cpuUtilization: 70
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+  limits:
+    cpu: "1"
+    memory: 2Gi
